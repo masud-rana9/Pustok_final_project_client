@@ -1,14 +1,73 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import AppFormSelect from "../ui/AppFormSelect";
 import AppFormTextarea from "../ui/AppFormTextarea";
 import AppFormInput from "./../ui/AppFormInput";
+import useAuth from "./../../hooks/useAuth";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddItem = () => {
-  const { register, handleSubmit, control, watch, formState: { errors } } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm();
+  const { user } = useAuth();
+  const onSubmit = async (data) => {
+    console.log(data);
+    const imageFile = { image: data.image[0] };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    if (res.data.success) {
+      const BookItem = {
+        name: data.name,
+        userEmail: data.userEmail,
+        authorName: data.authorName,
+        category: data.category,
+        price: parseFloat(data.price),
+        status: data.status,
+        description: data.description,
+        image: res.data.data.display_url,
+      };
+      const BookRes = axiosSecure.post("/books", BookItem);
+      console.log(BookRes.data);
+      if ((await BookRes).data.insertedId) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Book has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
+    console.log(res.data);
+  };
 
   const status = watch("status");
   const showPrice = status === "Paid";
+
+  // Set default email value once user is available
+  useEffect(() => {
+    if (user?.email) {
+      setValue("userEmail", user.email);
+    }
+  }, [user, setValue]);
 
   const categoryOptions = [
     { label: "Medical", value: "Medical" },
@@ -31,11 +90,11 @@ const AddItem = () => {
         className="grid grid-cols-1 gap-6 lg:grid-cols-2"
       >
         <AppFormInput
-          name="bookName"
+          name="name"
           placeholder="Book Name"
           label="Book Name"
           register={register}
-          error={errors.bookName}
+          error={errors.name}
           type="text"
           required
           className="w-full"

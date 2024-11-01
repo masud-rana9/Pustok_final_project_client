@@ -48,35 +48,35 @@ const Dashboard = () => {
 
             <h2
               className={`flex items-center space-x-2 ${
-                activeItem === "add-item"
+                activeItem === "add-book"
                   ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
                   : ""
               }`}
-              onClick={() => handleItemClick("add-item")}
+              onClick={() => handleItemClick("add-book")}
             >
               <FaCartPlus className="text-2xl" />
               <Link
-                to="/dashboard/add-item"
+                to="/dashboard/add-book"
                 className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
               >
-                Add Item
+                Add Book
               </Link>
             </h2>
 
             <h2
               className={`flex items-center space-x-2 ${
-                activeItem === "manage-item"
+                activeItem === "manage-book"
                   ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
                   : ""
               }`}
-              onClick={() => handleItemClick("manage-item")}
+              onClick={() => handleItemClick("manage-book")}
             >
               <MdCalendarViewMonth className="text-2xl" />
               <Link
-                to="/dashboard/manage-item"
+                to="/dashboard/manage-book"
                 className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
               >
-                Manage Item
+                Manage Book
               </Link>
             </h2>
 

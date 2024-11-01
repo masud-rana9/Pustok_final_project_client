@@ -10,6 +10,8 @@ import Dashboard from "../layout/Dashboard";
 import Carts from "../pages/dashboard/Carts";
 import Allusers from "../pages/dashboard/Allusers";
 import AddItem from "../pages/dashboard/AddItem";
+import ManageBook from "../pages/dashboard/ManageBook";
+import Editbook from "../pages/dashboard/Editbook";
 
 export const router = createBrowserRouter([
   //home related routes
@@ -58,8 +60,28 @@ export const router = createBrowserRouter([
         element: <Allusers />,
       },
       {
-        path: "/dashboard/add-item",
-        element: <AddItem />,
+        path: "/dashboard/add-book",
+        element: (
+          <PrivateRoutes>
+            <AddItem />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/manage-book",
+        element: (
+          <PrivateRoutes>
+            <ManageBook />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/edit-book/:id",
+        element: (
+          <PrivateRoutes>
+            <Editbook />
+          </PrivateRoutes>
+        ),
       },
     ],
   },
