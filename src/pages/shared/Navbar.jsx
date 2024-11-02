@@ -30,13 +30,12 @@ const Navbar = () => {
   const navItem = [
     { name: "Home", path: "/" },
     { name: "Books", path: "/books" },
-    { name: "Dashboard", path: "/dashboard" },
+    { name: "Dashboard", path: "/dashboard/add-book" },
     { name: "Store", path: "/store/Medical" },
-    { name: "Login", path: "/login" },
   ];
 
   return (
-    <div className="bg-[#0074D9]  md:z-10 p-4 md:px-10 flex justify-evenlyitems-center sticky top-0 z-50">
+    <div className="bg-[#0074D9]  md:z-10 p-4 md:px-10 flex  sticky top-0 z-50">
       {/* Logo + Burger/Cross Icon for mobile */}
       <div
         onClick={() => setIsopen(!isopen)}
@@ -51,12 +50,15 @@ const Navbar = () => {
 
       {/* Logo for Desktop */}
       <div className=" hidden md:block w-40 h-20 text-white">
-        {/* <img src={logo} alt="logo" /> */}LOGO
+        {/* <img src={logo} alt="logo" /> */}
+        <Link to="/">
+          <h1 className="text-3xl font-bold md:mt-5">PUSTOK</h1>
+        </Link>
       </div>
 
       {/* Navbar Items */}
       <div
-        className={`md:flex md:flex-row md:items-center md:gap-16 absolute md:relative left-0 w-full transition-all duration-500 ease-in-out ${
+        className={`md:flex md:flex-row md:items-center md:gap-3.5 absolute md:relative left-0 w-full transition-all duration-500 ease-in-out ${
           isopen ? "top-14 bg-[#0074D9]" : "-top-96"
         } md:top-0 ${isopen ? "block" : "hidden md:block"}`}
       >
@@ -72,20 +74,32 @@ const Navbar = () => {
               {nav.name}
             </Link>
           ))}
+        </div>
+
+        <div className="md:flex items-center gap-2 justify-between">
           <Link to="/dashboard/carts">
-            <div className="text-white p-4">
+            <div className="text-blue-700 p-4 flex w-20  items-center bg-white rounded-full  gap-2">
               <BsCartPlus className="text-2xl mt-2 " />
-              <span className="text-xl">{carts.length}</span>
+              <span className="text-sm">{carts.length}</span>
             </div>
           </Link>
           {user ? (
             <>
-              <button className="text-white" onClick={handleLogout}>
-                Logout || {user.displayName}
+              <button
+                className="text-white text-xl rounded-full border border-white p-3 "
+                onClick={handleLogout}
+              >
+                Logout
               </button>
             </>
           ) : (
-            <></>
+            <>
+              <Link to="/login">
+                <button className="text-white text-xl rounded-full border border-white p-2 ">
+                  Login
+                </button>
+              </Link>
+            </>
           )}
         </div>
       </div>

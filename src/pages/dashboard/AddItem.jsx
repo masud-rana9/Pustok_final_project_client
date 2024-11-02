@@ -75,6 +75,7 @@ const AddItem = () => {
     { label: "Thriller", value: "Thriller" },
     { label: "History", value: "History" },
     { label: "School", value: "School" },
+    { label: "Popular", value: "Popular" },
   ];
 
   const statusOptions = [

@@ -11,7 +11,8 @@ import Carts from "../pages/dashboard/Carts";
 import Allusers from "../pages/dashboard/Allusers";
 import AddItem from "../pages/dashboard/AddItem";
 import ManageBook from "../pages/dashboard/ManageBook";
-import Editbook from "../pages/dashboard/Editbook";
+
+import EditBook from "../pages/dashboard/Editbook";
 
 export const router = createBrowserRouter([
   //home related routes
@@ -25,11 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: (
-          <PrivateRoutes>
-            <Books></Books>
-          </PrivateRoutes>
-        ),
+        element: <Books></Books>,
       },
       {
         path: "/store/:CategoryName",
@@ -79,9 +76,28 @@ export const router = createBrowserRouter([
         path: "/dashboard/edit-book/:id",
         element: (
           <PrivateRoutes>
-            <Editbook />
+            <EditBook />
           </PrivateRoutes>
         ),
+        // loader: async ({ params }) => {
+        //   try {
+        //     const response = await fetch(
+        //       `http://localhost:5000/books/${params.id}`
+        //     );
+        //     if (!response.ok) {
+        //       throw new Error("Failed to load book data");
+        //     }
+        //     const data = await response.json();
+        //     if (!data) {
+        //       throw new Error("No book data found");
+        //     }
+        //     return data;
+        //   } catch (error) {
+        //     console.error("Error loading book data:", error);
+        //     // Optionally return a default object or an error response
+        //     return { error: "Could not load book data" };
+        //   }
+        // },
       },
     ],
   },

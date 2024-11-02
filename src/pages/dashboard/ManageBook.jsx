@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
-import useBooks from "../../hooks/useBooks";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { Link } from "react-router-dom";
+import useBooks from "../../hooks/useBooks";
 
 const ManageBook = () => {
   const [books, loading, refetch] = useBooks();
@@ -49,6 +49,10 @@ const ManageBook = () => {
 
   // Handle page change
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="w-full">
