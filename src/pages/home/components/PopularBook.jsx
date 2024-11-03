@@ -10,6 +10,7 @@ import "swiper/css/autoplay"; // Import autoplay styles
 import { Pagination, Autoplay } from "swiper/modules";
 import useBooks from "../../../hooks/useBooks";
 import { Link } from "react-router-dom";
+import SectionTitle from "../../../components/SectionTitle";
 
 const PopularBook = () => {
   // const [data, setData] = useState([]);
@@ -38,9 +39,9 @@ const PopularBook = () => {
 
   return (
     <>
-      <h1 className="text-4xl cursor-pointer font-semibold mb-16 flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 text-white p-3 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-        Popular Books
-      </h1>
+      <div className="my-20">
+        <SectionTitle header={"Popular Books"} headerTitle={"Popular"} />
+      </div>
 
       <Swiper
         spaceBetween={30}

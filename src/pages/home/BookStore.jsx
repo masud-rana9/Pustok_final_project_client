@@ -34,10 +34,10 @@ const BookStore = () => {
 
       <div className="mb-16">
         <BookCover
-          decription={"Book Store"}
+          decription={"Welcome to Our Book Store"}
           image={image}
-          title={"Book Store "}
-          height="h-[500px]"
+          title={"Welcome to Our Book Store "}
+          height="lg:h-[60vh]"
         />
       </div>
 

@@ -51,10 +51,10 @@ const Carts = () => {
       </Helmet>
 
       <SectionTitle header={"Cart"} headerTitle={"All Cart Info"} />
-      <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6 bg-slate-300">
+      <div className="flex items-center justify-between font-thin text-2xl w-full p-6 bg-slate-300">
         <h2>Items: {carts.length}</h2>
-        <h2>Total Price: {totalPrice.toFixed(2)}</h2>
-        <button className="bg-blue-500 text-white px-8 py-2 rounded">
+        <h2>Total Price: ${totalPrice.toFixed(2)}</h2>
+        <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 rounded transition-colors">
           Checkout
         </button>
       </div>

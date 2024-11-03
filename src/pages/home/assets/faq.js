@@ -1,9 +1,9 @@
 // src/pages/home/assets/faq.js
 const faqs = [
   {
-    question: "What is PUStOK?",
+    question: "What is PUSTOK?",
     answer:
-      "PUStOK is an online platform dedicated to connecting readers with a vast collection of old and rare books. We aim to make literature accessible to everyone while promoting the joy of reading and preserving literary history.",
+      "PUSTOK is an online platform dedicated to connecting readers with a vast collection of old and rare books. We aim to make literature accessible to everyone while promoting the joy of reading and preserving literary history.",
   },
   {
     question: "How can I purchase a book from PUStOK?",

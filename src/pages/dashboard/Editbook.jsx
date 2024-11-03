@@ -8,6 +8,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import useFetchBookById from "../../hooks/useFetchBookById";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../components/SectionTitle";
 
 const EditBook = () => {
   const { user } = useAuth();
@@ -82,6 +84,12 @@ const EditBook = () => {
 
   return (
     <div className="p-6 bg-gray-100">
+      <Helmet>
+        <title>Pustok || Edit Book</title>
+        <meta name="description" content="Pustok || Manage Books" />
+      </Helmet>
+
+      <SectionTitle header={"Edit Book"} headerTitle={"Book"} />
       <form
         className="grid grid-cols-1 gap-6 lg:grid-cols-2"
         onSubmit={handleSubmit(onSubmit)}

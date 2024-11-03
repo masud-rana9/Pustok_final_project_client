@@ -11,7 +11,7 @@ const AppCategory = ({ items, CategoryName }) => {
   return (
     <div className="">
       <h1 className="text-3xl font-bold mt-8 mb-4 flex items-center justify-center">
-        {CategoryName}
+        {/* {CategoryName} */}
       </h1>
       <Swiper
         spaceBetween={30}

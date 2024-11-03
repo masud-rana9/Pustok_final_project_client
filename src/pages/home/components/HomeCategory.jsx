@@ -9,12 +9,13 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { imagedata } from "../assets/imagedata";
 import AppCategorybanner from "../../../components/AppCategorybanner";
+import SectionTitle from "../../../components/SectionTitle";
 
 const HomeCategory = () => {
   return (
     <div className="h-[60vh]">
-      <div className="text-4xl cursor-pointer text-center font-semibold mt-20 bg-gradient-to-r from-purple-500 to-blue-500 text-white p-3 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-opacity-90">
-        Explore Books
+      <div className="my-20">
+        <SectionTitle header={"Explore More Books"} headerTitle={"Expolore"} />
       </div>
 
       <Swiper
@@ -39,7 +40,7 @@ const HomeCategory = () => {
         }}
       >
         {imagedata.map((item) => (
-          <SwiperSlide key={item.id} className="mt-20">
+          <SwiperSlide key={item.id} className="">
             <AppCategorybanner item={item} />
           </SwiperSlide>
         ))}

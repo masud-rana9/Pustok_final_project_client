@@ -1,5 +1,6 @@
 import { useState } from "react";
 import faqs from "../assets/faq";
+import SectionTitle from "../../../components/SectionTitle";
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -10,9 +11,15 @@ const Faq = () => {
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-sm">
-      <h2 className="text-4xl font-semibold mb-6">
+      <div className="my-20">
+        <SectionTitle
+          header={"Frequently Asked Questions"}
+          headerTitle={"FAQ"}
+        />
+      </div>
+      {/* <h2 className="text-4xl font-semibold mb-6">
         Frequently Asked Questions
-      </h2>
+      </h2> */}
       {faqs.map((faq, index) => (
         <div key={index} className="border-b border-gray-200 mb-4">
           <div

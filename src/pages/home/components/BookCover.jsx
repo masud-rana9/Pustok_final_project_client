@@ -1,6 +1,6 @@
-const BookCover = ({ image, title, description, height = "h-60" }) => {
+const BookCover = ({ image, title, description, height = "lg:h-[60vh]" }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="bg-white  overflow-hidden">
       <div
         className={`w-full relative flex items-center justify-center text-white ${height} bg-cover`}
         style={{

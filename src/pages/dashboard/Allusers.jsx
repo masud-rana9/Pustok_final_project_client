@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "./../../components/SectionTitle";
 
 const Allusers = () => {
   const axiosSecure = useAxiosSecure();
@@ -60,6 +62,12 @@ const Allusers = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Pustok || All Users</title>
+        <meta name="description" content="Pustok || All Users" />
+      </Helmet>
+
+      <SectionTitle header={"All Users"} headerTitle={"Users"} />
       <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6  bg-slate-300">
         <h2>Items:{users.length}</h2>
         <h2>Total Price: </h2>
