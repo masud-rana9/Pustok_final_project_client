@@ -43,11 +43,23 @@ const BookStore = () => {
 
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
-          <Tab>Medical</Tab>
-          <Tab>University</Tab>
-          <Tab>Thriller</Tab>
-          <Tab>History</Tab>
-          <Tab>School</Tab>
+          <Tab>
+            <h1 className="md:text-3xl text-base ">Medical</h1>
+          </Tab>
+          <Tab>
+            <h1 className="md:text-3xl text-base"> University </h1>{" "}
+          </Tab>
+          <Tab>
+            <h1 className="md:text-3xl text-base"> Thriller </h1>{" "}
+          </Tab>
+          <Tab>
+            {" "}
+            <h1 className="md:text-3xl text-base">History</h1>{" "}
+          </Tab>
+          <Tab>
+            {" "}
+            <h1 className="md:text-3xl text-base"> School </h1>
+          </Tab>
         </TabList>
 
         <TabPanel>

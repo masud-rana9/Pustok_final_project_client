@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { useState } from "react";
 import useCarts from "../../hooks/useCarts";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
@@ -6,10 +7,13 @@ import SectionTitle from "../../components/SectionTitle";
 
 const Carts = () => {
   const [carts, refetch] = useCarts();
+
   const totalPrice = carts.reduce((sum, item) => item.price + sum, 0);
   const axiosSecure = useAxiosSecure();
+  const itemsPerPage = 10; // Show 10 items per page
+  const [currentPage, setCurrentPage] = useState(1);
+
   const handleDeleteCart = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -21,19 +25,24 @@ const Carts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/carts/${id}`).then((res) => {
-          console.log(res);
           if (res.data.deletedCount > 0) {
-            Swal.fire({
-              title: "Deleted!",
-              text: `Book has been deleted.`,
-              icon: "success",
-            });
+            Swal.fire("Deleted!", "Book has been deleted.", "success");
             refetch();
           }
         });
       }
     });
   };
+
+  // Calculate the items to show based on the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = carts.slice(startIndex, startIndex + itemsPerPage);
+  const totalPages = Math.ceil(carts.length / itemsPerPage);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   return (
     <div className="w-full p-6 bg-gray-100">
       <Helmet>
@@ -42,11 +51,11 @@ const Carts = () => {
       </Helmet>
 
       <SectionTitle header={"Cart"} headerTitle={"All Cart Info"} />
-      <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6  bg-slate-300">
+      <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6 bg-slate-300">
         <h2>Items: {carts.length}</h2>
         <h2>Total Price: {totalPrice.toFixed(2)}</h2>
         <button className="bg-blue-500 text-white px-8 py-2 rounded">
-          Pay
+          Checkout
         </button>
       </div>
 
@@ -54,7 +63,6 @@ const Carts = () => {
         <thead>
           <tr>
             <th className="py-2">Sl</th>
-            {/* <th className="py-2">Image</th> */}
             <th className="py-2">Name</th>
             <th className="py-2">Price</th>
             <th className="py-2">Email</th>
@@ -62,21 +70,17 @@ const Carts = () => {
           </tr>
         </thead>
         <tbody>
-          {carts.map((item, index) => (
+          {currentItems.map((item, index) => (
             <tr
-              key={index}
+              key={item._id}
               className="text-center border-b-4 border-b-white bg-gray-100"
             >
-              <td className="py-2">{index + 1}</td>
-              {/* <td className="py-2">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-12 h-12 object-cover"
-                />
-              </td> */}
+              <td className="py-2">{startIndex + index + 1}</td>
               <td className="py-2">{item.name}</td>
-              <td className="py-2">${item.price}</td>
+              <td className="py-2">
+                {" "}
+                {item.price ? <>${item.price}</> : <>{item.status}</>}
+              </td>
               <td className="py-2">{item.email}</td>
               <td className="py-2">
                 <button
@@ -90,6 +94,23 @@ const Carts = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center mt-4">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={`mx-1 px-3 py-1 rounded ${
+              currentPage === index + 1
+                ? "bg-blue-500 text-white"
+                : "bg-gray-300"
+            }`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

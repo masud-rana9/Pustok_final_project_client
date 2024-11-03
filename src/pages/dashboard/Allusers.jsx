@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
 const Allusers = () => {
   const axiosSecure = useAxiosSecure();
@@ -89,7 +90,7 @@ const Allusers = () => {
               <td className="py-2">{user.email}</td>
               <td className="py-2">
                 {user.role === "admin" ? (
-                  "Admin"
+                  <div className="text-blue-500 ">Admin</div>
                 ) : (
                   <button
                     className="bg-blue-500 text-white px-4 py-2 rounded"
@@ -101,10 +102,10 @@ const Allusers = () => {
               </td>
               <td className="py-2">
                 <button
-                  className="bg-red-500 text-white px-4 py-2 rounded"
+                  className="  px-4 py-2 rounded"
                   onClick={() => handleDeleteUser(user._id)}
                 >
-                  Delete
+                  <RiDeleteBin6Fill className="text-2xl text-red-500" />
                 </button>
               </td>
             </tr>

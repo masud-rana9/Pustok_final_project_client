@@ -14,7 +14,6 @@ const AppCategory = ({ items, CategoryName }) => {
         {CategoryName}
       </h1>
       <Swiper
-        slidesPerView={3}
         spaceBetween={30}
         autoplay={{
           delay: 2000,
@@ -22,6 +21,16 @@ const AppCategory = ({ items, CategoryName }) => {
         }}
         modules={[Pagination, Autoplay]}
         className="mySwiper"
+        breakpoints={{
+          768: {
+            // md screen (768px and up)
+            slidesPerView: 2,
+          },
+          1280: {
+            // 2xl screen (1280px and up)
+            slidesPerView: 3,
+          },
+        }}
       >
         {items.map((book) => (
           <SwiperSlide key={book._id}>
@@ -29,6 +38,7 @@ const AppCategory = ({ items, CategoryName }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
       <div className="flex mt-10 justify-center">
         <Link to={`/store/${CategoryName}`}>
           <button className="bg-blue-500 text-white px-8 py-2 rounded">

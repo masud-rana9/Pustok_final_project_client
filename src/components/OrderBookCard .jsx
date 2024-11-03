@@ -5,6 +5,7 @@ import useAxiosSecure from "./../hooks/useAxiosSecure";
 import useCarts from "../hooks/useCarts";
 
 const OrderBookCard = ({ book }) => {
+  console.log(book);
   const { authorName, description, image, name, price, status, _id } = book;
   const { user } = useAuth();
   const [, refetch] = useCarts();
@@ -19,6 +20,7 @@ const OrderBookCard = ({ book }) => {
         name,
         email: user.email,
         price,
+        status,
       };
 
       axiosSecure.post("/carts", cartItem).then((res) => {
@@ -73,7 +75,7 @@ const OrderBookCard = ({ book }) => {
         Price: {price !== null ? `$${price}` : "Free"}
       </p>
       <button
-        className="mt-4 bg-blue-600 text-white absolute bottom-4 left-24 py-2 px-4 rounded-lg w-40 hover:bg-blue-700 transition-colors duration-300"
+        className="mt-4 bg-blue-600 text-white absolute bottom-4 md:left-28 left-48 lg:left-40 py-2 px-4 rounded-lg w-40 hover:bg-blue-700 transition-colors duration-300"
         onClick={() => handleAddToCart(book)}
       >
         Add to Cart

@@ -48,12 +48,12 @@ const Banner = () => {
         backgroundImage: `url(${image})`,
       }}
     >
-      <h1 className="text-white text-2xl lg:text-3xl 2xl:text-5xl lg:max-w-[70%] text-center font-bold ">
+      <h1 className="text-white text-2xl md:text-4xl 2xl:text-5xl lg:max-w-[70%] text-center font-bold ">
         <span className="text-[#0074D9]">Welcome to pustok, </span> your gateway
         to <span className="text-[#0074D9]">a world of books.</span>
       </h1>
-      <p className="lg:text-[16px] text-[12px] text-center text-[#F1F5F9] lg:my-3 mb-2">
-        A Platform Where You Can Find Events According to Your Passion
+      <p className="lg:text-[20px] text-[12px] text-center text-[#F1F5F9] lg:my-3 mb-2">
+        A Platform Where You Can Find Books According to Your Preference
       </p>
       <AppSearchInput variant="white" />
       <div className="mt-5 text-white flex justify-center items-center gap-2 lg:gap-5">
@@ -61,14 +61,14 @@ const Banner = () => {
           label="Explore Books"
           variant="filled"
           href="/books"
-          className="text-[12px] lg:text-base"
+          className="text-xl lg:text-base"
         />
         <p className="text-sm lg:text-base">Or</p>
         <AppButton
           href="/dashboard/add-book"
           label="Post Book"
           variant="outlined"
-          className="text-[12px] lg:text-base"
+          className="text-sm lg:text-base"
         />
       </div>
     </div>

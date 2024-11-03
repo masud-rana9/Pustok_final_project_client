@@ -79,7 +79,7 @@ const Navbar = () => {
 
           <div className="md:flex items-center gap-2 justify-between">
             {user && (
-              <Link to="/dashboard/add-book" className="text-white text-xl p-4">
+              <Link to="/dashboard" className="text-white text-xl p-4">
                 Dashboard
               </Link>
             )}

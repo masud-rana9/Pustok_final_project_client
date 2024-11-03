@@ -9,6 +9,7 @@ import "swiper/css/autoplay"; // Import autoplay styles
 // Import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 import useBooks from "../../../hooks/useBooks";
+import { Link } from "react-router-dom";
 
 const PopularBook = () => {
   // const [data, setData] = useState([]);
@@ -42,17 +43,23 @@ const PopularBook = () => {
       </h1>
 
       <Swiper
-        slidesPerView={3}
         spaceBetween={30}
-        // pagination={{
-        //   clickable: true,
-        // }}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
         className="mySwiper"
+        breakpoints={{
+          768: {
+            // md screen
+            slidesPerView: 2,
+          },
+          1536: {
+            // 2xl screen
+            slidesPerView: 3,
+          },
+        }}
       >
         {popularBooks.map((book) => (
           <SwiperSlide key={book._id}>
@@ -60,11 +67,11 @@ const PopularBook = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex mt-10 justify-center">
+      <Link to={"/books"} className="flex mt-10 justify-center">
         <button className="bg-blue-500 text-white px-8 py-2 rounded">
           View All
         </button>
-      </div>
+      </Link>
     </>
   );
 };

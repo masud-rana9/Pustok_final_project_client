@@ -63,8 +63,8 @@ const MyBooks = () => {
   if (!userBooks || userBooks.length === 0) {
     return (
       <div className="flex items-center flex-col justify-center w-full h-[50vh] mx-auto">
-        <BsBoxSeam className="text-7xl text-blue-600" />
-        <h1 className="text-3xl font-bold text-blue-600">No Books Found</h1>
+        <BsBoxSeam className="text-7xl text-red-600" />
+        <h1 className="text-3xl font-bold text-red-600">No Books Found</h1>
       </div>
     );
   }
@@ -112,15 +112,15 @@ const MyBooks = () => {
 
               <Link to={`/dashboard/edit-userBook/${item._id}`}>
                 <td className="py-2 flex items-center justify-center">
-                  <FaRegEdit className="text-2xl" />
+                  <FaRegEdit className="text-2xl text-blue-500" />
                 </td>
               </Link>
               <td className="py-2">
                 <button
-                  className="bg-red-500 text-white px-4 py-2 rounded"
+                  className=" px-4 py-2 rounded"
                   onClick={() => handleDeleteCart(item._id)}
                 >
-                  <MdOutlineDelete className="text-3xl" />
+                  <MdOutlineDelete className="text-3xl text-red-500  " />
                 </button>
               </td>
             </tr>

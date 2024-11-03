@@ -9,7 +9,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg">
+    <div className="p-6 bg-white rounded-lg shadow-sm">
       <h2 className="text-4xl font-semibold mb-6">
         Frequently Asked Questions
       </h2>

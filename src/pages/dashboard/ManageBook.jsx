@@ -7,6 +7,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useBooks from "../../hooks/useBooks";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../components/SectionTitle";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
 const ManageBook = () => {
   const [books, loading, refetch] = useBooks();
@@ -58,22 +59,14 @@ const ManageBook = () => {
 
   return (
     <div className="w-full">
-      {/* <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6 rounded-lg bg-slate-300">
-        <h2>Items: </h2>
-        <h2>Total Price: </h2>
-        <button className="bg-blue-500 text-white px-8 py-2 rounded">
-          Pay
-        </button>
-      </div> */}
-
       <Helmet>
         <title>Pustok || Manage Books</title>
         <meta name="description" content="Pustok || Manage Books" />
       </Helmet>
 
       <SectionTitle header={"Manage Books"} headerTitle={"Books"} />
-      <table className="min-w-full bg-white">
-        <thead>
+      <table className="min-w-full bg-white text-xl">
+        <thead className="bg-slate-300 p-4 ">
           <tr>
             <th className="py-2">Sl</th>
             <th className="py-2">Name</th>
@@ -96,15 +89,15 @@ const ManageBook = () => {
 
               <Link to={`/dashboard/edit-book/${item._id}`}>
                 <td className="py-2 flex items-center justify-center">
-                  <FaRegEdit className="text-2xl" />
+                  <FaRegEdit className="text-2xl text-blue-500" />
                 </td>
               </Link>
               <td className="py-2">
                 <button
-                  className="bg-red-500 text-white px-4 py-2 rounded"
+                  className=" px-4 py-2 "
                   onClick={() => handleDeleteCart(item._id)}
                 >
-                  <MdOutlineDelete className="text-3xl" />
+                  <RiDeleteBin6Fill className="text-2xl text-red-500" />
                 </button>
               </td>
             </tr>
