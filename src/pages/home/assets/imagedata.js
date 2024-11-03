@@ -1,9 +1,9 @@
 import image1 from "./for banner/medical.webp";
 import image2 from "./for banner/school.webp";
-import image3 from "./for banner/university.webp";
+import image3 from "./for banner/thriller.webp";
 import image4 from "./for banner/unversity.webp";
-import image5 from "./for banner/medical.webp";
-import image6 from "./06.png";
+import image5 from "./for banner/history.webp";
+import image6 from "./for banner/popular.webp";
 
 export const imagedata = [
   {
