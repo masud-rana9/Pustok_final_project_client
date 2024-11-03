@@ -5,8 +5,9 @@ import { useParams } from "react-router-dom";
 import useBooks from "../../hooks/useBooks";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-
+import image from "../../assets/bookstore.webp";
 import CatewiseBook from "../../components/CatewiseBook";
+import BookCover from "./components/BookCover";
 
 const BookStore = () => {
   const [books] = useBooks();
@@ -25,11 +26,20 @@ const BookStore = () => {
   const thrillerBooks = books.filter((item) => item.category === "Thriller");
 
   return (
-    <div className="mt-40">
+    <div className="">
       <Helmet>
         <title>Pustok || Book Store</title>
         <meta name="description" content="Pustok || Book Store" />
       </Helmet>
+
+      <div className="mb-16">
+        <BookCover
+          decription={"Book Store"}
+          image={image}
+          title={"Book Store "}
+          height="h-[500px]"
+        />
+      </div>
 
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>

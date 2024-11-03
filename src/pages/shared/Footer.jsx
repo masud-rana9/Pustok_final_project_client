@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className=" w-full flex flex-col md:px-10 md:py-4 mt-20">
-      <div className=" lg:flex justify-between items-center mb-3 lg:my-10">
+    <footer className=" w-full container mx-auto flex flex-col md:px-10 md:py-4 mt-20">
+      <div className=" lg:flex  justify-between items-center mb-3 lg:my-10">
         <div className="flex items-center justify-between">
           <h1 className="">
             <Link to={"/"}>
-              <img
-                src="/assets/enroll  (6).png"
-                width={80}
-                height={80}
-                alt="#"
-              />
+              <h1 className="text-3xl font-bold text-blue-600">PUATOK</h1>
             </Link>
           </h1>
           <div className="lg:hidden flex justify-center items-center gap-6 text-gray-600 text-2xl cursor-pointer">

@@ -1,6 +1,8 @@
 import Swal from "sweetalert2";
 import useCarts from "../../hooks/useCarts";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../components/SectionTitle";
 
 const Carts = () => {
   const [carts, refetch] = useCarts();
@@ -33,8 +35,14 @@ const Carts = () => {
     });
   };
   return (
-    <div className="w-full">
-      <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6 rounded-lg bg-slate-300">
+    <div className="w-full p-6 bg-gray-100">
+      <Helmet>
+        <title>Pustok || Cart</title>
+        <meta name="description" content="Pustok || Cart" />
+      </Helmet>
+
+      <SectionTitle header={"Cart"} headerTitle={"All Cart Info"} />
+      <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6  bg-slate-300">
         <h2>Items: {carts.length}</h2>
         <h2>Total Price: {totalPrice.toFixed(2)}</h2>
         <button className="bg-blue-500 text-white px-8 py-2 rounded">

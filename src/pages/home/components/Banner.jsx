@@ -37,6 +37,8 @@
 
 // export default Banner;
 import image from "../../../../public/banner.png";
+import AppButton from "../../ui/AppButton";
+import AppSearchInput from "../../ui/AppSearchInput";
 
 const Banner = () => {
   return (
@@ -46,27 +48,28 @@ const Banner = () => {
         backgroundImage: `url(${image})`,
       }}
     >
-      <h1 className="text-white text-2xl lg:text-3xl 2xl:text-5xl   lg:max-w-[70%] text-center font-bold ">
-        Your <span className="text-[#0074D9]"> Launchpad </span> for Future
-        Ready <span className="text-[#0074D9]">Skills & Connections</span>
+      <h1 className="text-white text-2xl lg:text-3xl 2xl:text-5xl lg:max-w-[70%] text-center font-bold ">
+        <span className="text-[#0074D9]">Welcome to pustok, </span> your gateway
+        to <span className="text-[#0074D9]">a world of books.</span>
       </h1>
       <p className="lg:text-[16px] text-[12px] text-center text-[#F1F5F9] lg:my-3 mb-2">
         A Platform Where You Can Find Events According to Your Passion
       </p>
-      {/* <AppSearchbtn variant="white" /> */}
+      <AppSearchInput variant="white" />
       <div className="mt-5 text-white flex justify-center items-center gap-2 lg:gap-5">
-        {/* <AppButton
-          label="Explore Event"
-          href="/event"
+        <AppButton
+          label="Explore Books"
+          variant="filled"
+          href="/books"
           className="text-[12px] lg:text-base"
         />
         <p className="text-sm lg:text-base">Or</p>
         <AppButton
-          href="/event/create-event"
-          label="Create Event"
+          href="/dashboard/add-book"
+          label="Post Book"
           variant="outlined"
           className="text-[12px] lg:text-base"
-        /> */}
+        />
       </div>
     </div>
   );

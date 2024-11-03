@@ -37,9 +37,10 @@ const PopularBook = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold mb-4 flex items-center justify-center">
+      <h1 className="text-4xl cursor-pointer font-semibold mb-16 flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 text-white p-3 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
         Popular Books
       </h1>
+
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

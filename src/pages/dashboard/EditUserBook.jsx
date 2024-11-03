@@ -2,82 +2,52 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import AppFormSelect from "../ui/AppFormSelect";
 import AppFormTextarea from "../ui/AppFormTextarea";
-import AppFormInput from "./../ui/AppFormInput";
-import useAuth from "./../../hooks/useAuth";
+import AppFormInput from "../ui/AppFormInput";
+import useAuth from "../../hooks/useAuth";
+import { useParams, useNavigate } from "react-router-dom";
+import useFetchBookById from "../../hooks/useFetchBookById";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { Helmet } from "react-helmet-async";
-import SectionTitle from "../../components/SectionTitle";
 
-const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-const AddItem = () => {
+const EditUserBook = () => {
+  const { user } = useAuth();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { book, isLoading } = useFetchBookById(id);
   const axiosPublic = useAxiosPublic();
-  const axiosSecure = useAxiosSecure();
+
   const {
     register,
-    handleSubmit,
-    control,
-    reset,
     watch,
+    control,
     setValue,
+    handleSubmit,
     formState: { errors },
   } = useForm();
-  const { user } = useAuth();
-  const onSubmit = async (data) => {
-    console.log(data);
-    const imageFile = { image: data.image[0] };
-    const res = await axiosPublic.post(image_hosting_api, imageFile, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-
-    if (res.data.success) {
-      const BookItem = {
-        name: data.name,
-        userEmail: data.userEmail,
-        authorName: data.authorName,
-        category: data.category,
-        price: parseFloat(data.price),
-        status: data.status,
-        description: data.description,
-        image: res.data.data.display_url,
-      };
-      const BookRes = axiosSecure.post("/books", BookItem);
-      console.log(BookRes.data);
-      if ((await BookRes).data.insertedId) {
-        reset();
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Book has been saved",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    }
-    console.log(res.data);
-  };
 
   const status = watch("status");
   const showPrice = status === "Paid";
 
-  // Set default email value once user is available
+  // Set form values once book data is fetched
   useEffect(() => {
-    if (user?.email) {
-      setValue("userEmail", user.email);
+    if (book) {
+      setValue("name", book.name);
+      setValue("authorName", book.authorName);
+      setValue("userEmail", book.userEmail || user?.email);
+      setValue("category", book.category);
+      setValue("status", book.status);
+      setValue("price", book.price);
+      setValue("description", book.description);
     }
-  }, [user, setValue]);
+  }, [book, setValue, user?.email]);
 
+  // Options for select fields
   const categoryOptions = [
     { label: "Medical", value: "Medical" },
     { label: "University", value: "University" },
     { label: "Thriller", value: "Thriller" },
     { label: "History", value: "History" },
     { label: "School", value: "School" },
-    { label: "Popular", value: "Popular" },
   ];
 
   const statusOptions = [
@@ -86,17 +56,35 @@ const AddItem = () => {
     { label: "Borrow", value: "Borrow" },
   ];
 
+  // Handle form submission
+  const onSubmit = async (data) => {
+    try {
+      await axiosPublic.put(`/books/${id}`, data).then((response) => {
+        console.log(response.data);
+        if (response.data.modifiedCount > 0) {
+          console.log("Book updated successfully");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Book has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+      navigate("/dashboard/my-books"); // Redirect to the updated book page or wherever you prefer
+    } catch (error) {
+      console.error("Failed to update book", error);
+    }
+  };
+
+  if (isLoading) return <div>Loading book data...</div>;
+
   return (
     <div className="p-6 bg-gray-100">
-      <Helmet>
-        <title>Pustok || Add Book</title>
-        <meta name="description" content="Pustok || Add Item" />
-      </Helmet>
-
-      <SectionTitle header={"Add Book"} headerTitle={"Add New Book"} />
       <form
-        onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-1 gap-6 lg:grid-cols-2"
+        onSubmit={handleSubmit(onSubmit)}
       >
         <AppFormInput
           name="name"
@@ -174,24 +162,15 @@ const AddItem = () => {
           className="w-full col-span-2"
         />
 
-        <AppFormInput
-          name="image"
-          label="Upload Image"
-          register={register}
-          error={errors.image}
-          type="file"
-          className="w-full col-span-2"
-        />
-
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 col-span-2"
         >
-          Submit
+          Update Book
         </button>
       </form>
     </div>
   );
 };
 
-export default AddItem;
+export default EditUserBook;
