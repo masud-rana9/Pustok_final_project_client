@@ -15,6 +15,8 @@ import PrivateRoutes from "./PrivateRoutes";
 import EditBook from "../pages/dashboard/Editbook";
 import MyBooks from "../pages/dashboard/MyBooks";
 import EditUserBook from "../pages/dashboard/EditUserBook";
+import AdminHomePage from "../pages/dashboard/AdminHomepage";
+import UserHomePage from "../pages/dashboard/userHomePage";
 
 export const router = createBrowserRouter([
   //home related routes
@@ -99,6 +101,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <MyBooks />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/admin-home",
+        element: (
+          <PrivateRoutes>
+            <AdminHomePage />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/user-home",
+        element: (
+          <PrivateRoutes>
+            <UserHomePage />
           </PrivateRoutes>
         ),
       },
