@@ -28,7 +28,7 @@ const UserHomePage = () => {
   const [selectedTab, setSelectedTab] = useState("dashboard");
 
   return (
-    <div className="container mx-auto p-4 pt-6 mt-10">
+    <div className="container mx-auto p-4 pt-6 mt-10 bg-gray-100 ">
       <div className="flex justify-between mb-4">
         <h2 className="text-3xl font-bold text-gray-900">User Home Page</h2>
         <div className="flex items-center space-x-4">
