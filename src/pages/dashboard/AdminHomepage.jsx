@@ -70,7 +70,7 @@ const AdminHomePage = () => {
           </div>
           <div className="col-span-3 bg-white p-4 rounded shadow-md">
             <h3 className="text-lg font-bold text-gray-900">Sales Chart</h3>
-            <LineChart width={1100} height={600} data={data}>
+            <LineChart width={800} height={400} data={data}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />

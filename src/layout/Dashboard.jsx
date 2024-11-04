@@ -26,7 +26,7 @@ const Dashboard = () => {
         <meta name="description" content="Pustok || Dashboard" />
       </Helmet>
 
-      <div className="space-y-4 bg-slate-300 p-8 w-[40%] shadow-lg h-[100vh]">
+      <div className="space-y-4 bg-slate-300 p-8 w-[40%] shadow-lg ">
         {isAdmin ? (
           <>
             <h2
