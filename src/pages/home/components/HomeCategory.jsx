@@ -8,36 +8,40 @@ import "swiper/css/pagination";
 // Import required modules
 import { Autoplay, Pagination } from "swiper/modules";
 import { imagedata } from "../assets/imagedata";
+import AppCategorybanner from "../../../components/AppCategorybanner";
+import SectionTitle from "../../../components/SectionTitle";
 
 const HomeCategory = () => {
   return (
-    <div className="h-[40vh]">
+    <div className="h-[60vh]">
+      <div className="my-20">
+        <SectionTitle header={"Explore More Books"} headerTitle={"Expolore"} />
+      </div>
+
       <Swiper
         spaceBetween={30}
-        // pagination={{
-        //   clickable: true,
-        // }}
         modules={[Pagination, Autoplay]}
         className="mySwiper"
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
+        breakpoints={{
+          // when window width is >= 640px (md)
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          // when window width is >= 1024px (lg)
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
       >
         {imagedata.map((item) => (
-          <SwiperSlide key={item.id} className="mt-20">
-            <img
-              src={item.url}
-              alt="banner"
-              className="w-full h-[30vh] object-cover"
-              //   onError={(e) => {
-              //     e.target.src =
-              //       "https://res.cloudinary.com/dj7e7vd5j/image/upload/v1649184097/placeholder_ghvqnx.png";
-              //   }}
-            />
-            <h3 className="text-4xl uppercase text-center -mt-20 text-white pb-5">
-              Category-1
-            </h3>
+          <SwiperSlide key={item.id} className="">
+            <AppCategorybanner item={item} />
           </SwiperSlide>
         ))}
       </Swiper>

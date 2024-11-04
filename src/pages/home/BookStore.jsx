@@ -5,8 +5,9 @@ import { useParams } from "react-router-dom";
 import useBooks from "../../hooks/useBooks";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-
+import image from "../../assets/bookstore.webp";
 import CatewiseBook from "../../components/CatewiseBook";
+import BookCover from "./components/BookCover";
 
 const BookStore = () => {
   const [books] = useBooks();
@@ -25,19 +26,40 @@ const BookStore = () => {
   const thrillerBooks = books.filter((item) => item.category === "Thriller");
 
   return (
-    <div className="mt-40">
+    <div className="">
       <Helmet>
         <title>Pustok || Book Store</title>
         <meta name="description" content="Pustok || Book Store" />
       </Helmet>
 
+      <div className="mb-16">
+        <BookCover
+          decription={"Welcome to Our Book Store"}
+          image={image}
+          title={"Welcome to Our Book Store "}
+          height="lg:h-[60vh]"
+        />
+      </div>
+
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
-          <Tab>Medical</Tab>
-          <Tab>University</Tab>
-          <Tab>Thriller</Tab>
-          <Tab>History</Tab>
-          <Tab>School</Tab>
+          <Tab>
+            <h1 className="md:text-3xl text-base ">Medical</h1>
+          </Tab>
+          <Tab>
+            <h1 className="md:text-3xl text-base"> University </h1>{" "}
+          </Tab>
+          <Tab>
+            <h1 className="md:text-3xl text-base"> Thriller </h1>{" "}
+          </Tab>
+          <Tab>
+            {" "}
+            <h1 className="md:text-3xl text-base">History</h1>{" "}
+          </Tab>
+          <Tab>
+            {" "}
+            <h1 className="md:text-3xl text-base"> School </h1>
+          </Tab>
         </TabList>
 
         <TabPanel>

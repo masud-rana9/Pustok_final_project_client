@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "./../../components/SectionTitle";
 
 const Allusers = () => {
   const axiosSecure = useAxiosSecure();
@@ -59,6 +62,12 @@ const Allusers = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Pustok || All Users</title>
+        <meta name="description" content="Pustok || All Users" />
+      </Helmet>
+
+      <SectionTitle header={"All Users"} headerTitle={"Users"} />
       <div className="flex items-center gap-96 text-white font-thin text-2xl w-full p-6  bg-slate-300">
         <h2>Items:{users.length}</h2>
         <h2>Total Price: </h2>
@@ -89,7 +98,7 @@ const Allusers = () => {
               <td className="py-2">{user.email}</td>
               <td className="py-2">
                 {user.role === "admin" ? (
-                  "Admin"
+                  <div className="text-blue-500 ">Admin</div>
                 ) : (
                   <button
                     className="bg-blue-500 text-white px-4 py-2 rounded"
@@ -101,10 +110,10 @@ const Allusers = () => {
               </td>
               <td className="py-2">
                 <button
-                  className="bg-red-500 text-white px-4 py-2 rounded"
+                  className="  px-4 py-2 rounded"
                   onClick={() => handleDeleteUser(user._id)}
                 >
-                  Delete
+                  <RiDeleteBin6Fill className="text-2xl text-red-500" />
                 </button>
               </td>
             </tr>

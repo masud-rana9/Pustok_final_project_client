@@ -5,25 +5,25 @@ import useAxiosSecure from "./../hooks/useAxiosSecure";
 import useCarts from "../hooks/useCarts";
 
 const OrderBookCard = ({ book }) => {
-  const { name, image, recipe, category, price, _id } = book;
+  console.log(book);
+  const { authorName, description, image, name, price, status, _id } = book;
   const { user } = useAuth();
   const [, refetch] = useCarts();
-  console.log(user);
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
+
   const handleAddToCart = (book) => {
     if (user && user.email) {
-      // add to cart
-      const carItem = {
+      const cartItem = {
         bookId: _id,
         name,
         email: user.email,
         price,
+        status,
       };
 
-      axiosSecure.post("/carts", carItem).then((res) => {
-        console.log(res.data);
+      axiosSecure.post("/carts", cartItem).then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-end",
@@ -53,21 +53,32 @@ const OrderBookCard = ({ book }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md flex flex-col justify-between">
-      <div>
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-40 object-cover rounded"
-        />
-        {/* <p>{user?.email}</p> */}
-        <h3 className="text-lg font-bold mt-2">{name}</h3>
-        <p className="text-gray-600 italic">{recipe}</p>
-        <p className="text-gray-800 font-semibold mt-2">Category: {category}</p>
-        <p className="text-green-600 font-bold mt-2">${price}</p>
+    <div className="bg-white relative h-[550px] p-4 rounded-lg shadow-lg transition-transform duration-300 hover:shadow-xl">
+      <img
+        src={image}
+        alt={name}
+        className="w-full h-52 object-cover rounded-lg mb-8"
+      />
+      <div className="flex justify-between items-center my-6">
+        <h3 className="text-3xl font-semibold text-gray-800">{name}</h3>
+        <p className="text-xl text-gray-600 mt-1">{authorName}</p>
+      </div>
+      <p className="text-lg text-gray-500 mt-1">{description}</p>
+      <div className="flex justify-between items-center my-6">
+        <p className="text-lg text-gray-800 font-semibold mt-2">
+          Category: {book.category}
+        </p>
+
+        <p className="text-lg  font-bold mt-2">
+          <span
+            className={status === "paid " ? "text-blue-600" : "text-blue-600"}
+          >
+            {price ? <>Price:${price}</> : <>{status}</>}
+          </span>
+        </p>
       </div>
       <button
-        className="mt-4 bg-blue-600 text-white py-2 px-4 w-32 mx-auto rounded hover:bg-blue-700 transition-colors duration-300"
+        className="mt-4 bg-blue-600 text-white absolute bottom-4 md:left-28 left-48 lg:left-40 py-2 px-4 rounded-lg w-40 hover:bg-blue-700 transition-colors duration-300"
         onClick={() => handleAddToCart(book)}
       >
         Add to Cart

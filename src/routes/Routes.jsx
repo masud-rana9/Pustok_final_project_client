@@ -1,18 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../layout/Dashboard";
 import Main from "../layout/Main";
-import Home from "../pages/home/Home";
-import Books from "../pages/home/Books";
-import BookStore from "../pages/home/BookStore";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
-import PrivateRoutes from "./PrivateRoutes";
-import Dashboard from "../layout/Dashboard";
-import Carts from "../pages/dashboard/Carts";
-import Allusers from "../pages/dashboard/Allusers";
 import AddItem from "../pages/dashboard/AddItem";
+import Allusers from "../pages/dashboard/Allusers";
+import Carts from "../pages/dashboard/Carts";
 import ManageBook from "../pages/dashboard/ManageBook";
+import Books from "../pages/home/Books";
+import BookStore from "../pages/home/BookStore";
+import Home from "../pages/home/Home";
+import PrivateRoutes from "./PrivateRoutes";
 
 import EditBook from "../pages/dashboard/Editbook";
+import MyBooks from "../pages/dashboard/MyBooks";
+import EditUserBook from "../pages/dashboard/EditUserBook";
+import AdminHomePage from "../pages/dashboard/AdminHomepage";
+import UserHomePage from "../pages/dashboard/userHomePage";
 
 export const router = createBrowserRouter([
   //home related routes
@@ -50,7 +54,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/carts",
-        element: <Carts />,
+        element: (
+          <PrivateRoutes>
+            <Carts />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard/all-users",
@@ -79,25 +87,38 @@ export const router = createBrowserRouter([
             <EditBook />
           </PrivateRoutes>
         ),
-        // loader: async ({ params }) => {
-        //   try {
-        //     const response = await fetch(
-        //       `http://localhost:5000/books/${params.id}`
-        //     );
-        //     if (!response.ok) {
-        //       throw new Error("Failed to load book data");
-        //     }
-        //     const data = await response.json();
-        //     if (!data) {
-        //       throw new Error("No book data found");
-        //     }
-        //     return data;
-        //   } catch (error) {
-        //     console.error("Error loading book data:", error);
-        //     // Optionally return a default object or an error response
-        //     return { error: "Could not load book data" };
-        //   }
-        // },
+      },
+      {
+        path: "/dashboard/edit-userBook/:id",
+        element: (
+          <PrivateRoutes>
+            <EditUserBook />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/my-books",
+        element: (
+          <PrivateRoutes>
+            <MyBooks />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/admin-home",
+        element: (
+          <PrivateRoutes>
+            <AdminHomePage />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/user-home",
+        element: (
+          <PrivateRoutes>
+            <UserHomePage />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

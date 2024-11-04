@@ -20,13 +20,13 @@ const Dashboard = () => {
     setActiveItem(itemName);
   };
   return (
-    <div className="flex mx-auto container mt-32">
+    <div className="flex mx-auto container ">
       <Helmet>
         <title>Pustok || Dashboard</title>
         <meta name="description" content="Pustok || Dashboard" />
       </Helmet>
 
-      <div className="space-y-4 bg-slate-300 p-8 w-[40%] shadow-lg rounded-lg h-screen">
+      <div className="space-y-4 bg-slate-300 p-8 w-[40%] shadow-lg h-[100vh]">
         {isAdmin ? (
           <>
             <h2
@@ -152,18 +152,18 @@ const Dashboard = () => {
 
             <h2
               className={`flex items-center space-x-2 ${
-                activeItem === "add-item"
+                activeItem === "add-book"
                   ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
                   : ""
               }`}
-              onClick={() => handleItemClick("add-item")}
+              onClick={() => handleItemClick("add-book")}
             >
               <FaCartPlus className="text-2xl" />
               <Link
-                to="/dashboard/add-item"
+                to="/dashboard/add-book"
                 className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
               >
-                Add Item
+                Add book
               </Link>
             </h2>
 
@@ -215,6 +215,22 @@ const Dashboard = () => {
                 className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
               >
                 My Booking
+              </Link>
+            </h2>
+            <h2
+              className={`flex items-center space-x-2 ${
+                activeItem === "my-books"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  : ""
+              }`}
+              onClick={() => handleItemClick("my-books")}
+            >
+              <FaAddressBook className="text-2xl" />
+              <Link
+                to="/dashboard/my-books"
+                className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
+              >
+                My Books
               </Link>
             </h2>
           </>
@@ -273,6 +289,9 @@ const Dashboard = () => {
       </div>
 
       <div className="w-screen">
+        <div className="bg-slate-300 p-10 flex justify-center items-center">
+          <h1 className="text-4xl font- semibold  ">Dashboard</h1>
+        </div>
         <Outlet />
       </div>
     </div>

@@ -18,6 +18,8 @@ const SocialLogin = () => {
         console.log(res.data);
         if (res.data.insertedId) {
           navigate("/");
+        } else {
+          navigate("/");
         }
       });
     });
