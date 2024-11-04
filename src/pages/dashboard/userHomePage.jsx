@@ -73,7 +73,7 @@ const UserHomePage = () => {
           </div>
           <div className="col-span-3 bg-white p-4 rounded shadow-md">
             <h3 className="text-lg font-bold text-gray-900">Activity Chart</h3>
-            <LineChart width={1100} height={600} data={userData}>
+            <LineChart width={800} height={400} data={userData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
