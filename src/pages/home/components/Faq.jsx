@@ -10,7 +10,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-sm">
+    <div className="p-6 bg-white rounded-lg shadow-sm" data-aos="zoom-out-down">
       <div className="my-20">
         <SectionTitle
           header={"Frequently Asked Questions"}

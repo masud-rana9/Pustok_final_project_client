@@ -26,7 +26,7 @@ const BookStore = () => {
   const thrillerBooks = books.filter((item) => item.category === "Thriller");
 
   return (
-    <div className="">
+    <div className="mb-14">
       <Helmet>
         <title>Pustok || Book Store</title>
         <meta name="description" content="Pustok || Book Store" />

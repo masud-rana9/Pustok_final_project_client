@@ -36,7 +36,7 @@
 // };
 
 // export default Banner;
-import image from "../../../../public/banner.png";
+import image from "../../../../public/banner.webp";
 import AppButton from "../../ui/AppButton";
 import AppSearchInput from "../../ui/AppSearchInput";
 
