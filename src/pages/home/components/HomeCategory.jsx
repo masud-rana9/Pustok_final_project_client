@@ -14,7 +14,7 @@ import SectionTitle from "../../../components/SectionTitle";
 const HomeCategory = () => {
   return (
     <div className="h-[60vh] " data-aos="zoom-in">
-      <div className="my-36">
+      <div className="my-24">
         <SectionTitle header={"Explore More Books"} headerTitle={"Expolore"} />
       </div>
 

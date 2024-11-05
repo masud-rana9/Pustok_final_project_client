@@ -23,8 +23,8 @@ const Books = () => {
       </Helmet>
       <BookCover
         image={image}
-        decription=" Welcome to Our books"
-        title="Welcome to Our Book Store"
+        description="Rediscover the Magic of Timeless Books"
+        title="Where Stories Never Grow Old"
         height={"lg:h-[60vh]"}
       />
       {/* <PopularBook /> */}

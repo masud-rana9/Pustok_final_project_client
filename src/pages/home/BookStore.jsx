@@ -8,6 +8,7 @@ import "react-tabs/style/react-tabs.css";
 import image from "../../assets/bookstore.webp";
 import CatewiseBook from "../../components/CatewiseBook";
 import BookCover from "./components/BookCover";
+import SectionTitle from "../../components/SectionTitle";
 
 const BookStore = () => {
   const [books] = useBooks();
@@ -38,6 +39,13 @@ const BookStore = () => {
           image={image}
           title={"Welcome to Our Book Store "}
           height="lg:h-[60vh]"
+        />
+      </div>
+
+      <div className="my-20 ">
+        <SectionTitle
+          header={"All Categories of Books "}
+          headerTitle={"Book Store"}
         />
       </div>
 
