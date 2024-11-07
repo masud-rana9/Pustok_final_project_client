@@ -17,6 +17,10 @@ import MyBooks from "../pages/dashboard/MyBooks";
 import EditUserBook from "../pages/dashboard/EditUserBook";
 import AdminHomePage from "../pages/dashboard/AdminHomepage";
 import UserHomePage from "../pages/dashboard/userHomePage";
+import AddReviews from "../pages/dashboard/Addreviews";
+import ContactPage from "../pages/home/components/ContactPage ";
+import Contactdetailspage from "../pages/dashboard/Contactdetailspage";
+import CheckOut from "../pages/dashboard/CheckOut";
 
 export const router = createBrowserRouter([
   //home related routes
@@ -43,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },
@@ -117,6 +125,30 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <UserHomePage />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/add-review",
+        element: (
+          <PrivateRoutes>
+            <AddReviews />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/contact-details",
+        element: (
+          <PrivateRoutes>
+            <Contactdetailspage />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/checkout",
+        element: (
+          <PrivateRoutes>
+            <CheckOut />
           </PrivateRoutes>
         ),
       },

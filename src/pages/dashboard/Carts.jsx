@@ -4,6 +4,8 @@ import useCarts from "../../hooks/useCarts";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../components/SectionTitle";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Carts = () => {
   const [carts, refetch] = useCarts();
@@ -42,6 +44,7 @@ const Carts = () => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+  console.log(carts);
 
   return (
     <div className="w-full p-6 bg-gray-100">
@@ -54,9 +57,11 @@ const Carts = () => {
       <div className="flex items-center justify-between font-thin text-2xl w-full p-6 bg-slate-300">
         <h2>Items: {carts.length}</h2>
         <h2>Total Price: ${totalPrice.toFixed(2)}</h2>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 rounded transition-colors">
-          Checkout
-        </button>
+        <Link to={"/dashboard/checkout"}>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 rounded transition-colors">
+            Checkout
+          </button>
+        </Link>
       </div>
 
       <table className="min-w-full bg-white">
@@ -84,10 +89,10 @@ const Carts = () => {
               <td className="py-2">{item.email}</td>
               <td className="py-2">
                 <button
-                  className="bg-red-500 text-white px-4 py-2 rounded"
+                  className=" text-white px-4 py-2 rounded"
                   onClick={() => handleDeleteCart(item._id)}
                 >
-                  Delete
+                  <RiDeleteBin6Fill className="text-2xl text-red-500" />
                 </button>
               </td>
             </tr>

@@ -13,7 +13,7 @@ const Features = () => {
       <div className="flex gap-10 px-20 py-10 text-[#FDFBDA]">
         <img
           className="w-[600px] h-[400px]"
-          src="../../../../../public/banner.webp"
+          src="../../../../../public/backround.webp"
           alt="Featured item"
         />
         <div>

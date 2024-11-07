@@ -7,13 +7,13 @@ import {
   FaFileContract,
 } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
-import { MdCalendarViewMonth } from "react-icons/md";
+import { MdCalendarViewMonth, MdDashboard } from "react-icons/md";
 import { VscPreview } from "react-icons/vsc";
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
-  const [activeItem, setActiveItem] = useState("carts");
+  const [activeItem, setActiveItem] = useState("dashboard");
   const [isAdmin] = useAdmin();
 
   const handleItemClick = (itemName) => {
@@ -26,13 +26,29 @@ const Dashboard = () => {
         <meta name="description" content="Pustok || Dashboard" />
       </Helmet>
 
-      <div className="space-y-4 bg-slate-300 p-8 w-[40%] shadow-lg ">
+      <div className="space-y-4 bg-slate-300 p-8 w-[40%] shadow-lg min-h-screen ">
         {isAdmin ? (
           <>
             <h2
               className={`flex items-center space-x-2 ${
+                activeItem === "dashboard"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md  text-white"
+                  : ""
+              }`}
+              onClick={() => handleItemClick("dashboard")}
+            >
+              <MdDashboard className="text-2xl " />
+              <Link
+                to="/dashboard"
+                className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
+              >
+                Dashboard
+              </Link>
+            </h2>
+            <h2
+              className={`flex items-center space-x-2 ${
                 activeItem === "admin-home"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md  text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md  text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("admin-home")}
@@ -49,7 +65,7 @@ const Dashboard = () => {
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "add-book"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("add-book")}
@@ -66,7 +82,7 @@ const Dashboard = () => {
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "manage-book"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("manage-book")}
@@ -83,7 +99,7 @@ const Dashboard = () => {
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "manage-bookings"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("manage-bookings")}
@@ -96,11 +112,26 @@ const Dashboard = () => {
                 Manage Bookings
               </Link>
             </h2>
-
+            <h2
+              className={`flex items-center space-x-2 ${
+                activeItem === "contact-details"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
+                  : ""
+              }`}
+              onClick={() => handleItemClick("contact-details")}
+            >
+              <VscPreview className="text-2xl" />
+              <Link
+                to="/dashboard/contact-details"
+                className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
+              >
+                Contact Info
+              </Link>
+            </h2>
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "all-users"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("all-users")}
@@ -118,13 +149,29 @@ const Dashboard = () => {
           <>
             <h2
               className={`flex items-center space-x-2 ${
+                activeItem === "dashboard"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md  text-white"
+                  : ""
+              }`}
+              onClick={() => handleItemClick("dashboard")}
+            >
+              <MdDashboard className="text-2xl " />
+              <Link
+                to="/dashboard"
+                className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
+              >
+                Dashboard
+              </Link>
+            </h2>
+            <h2
+              className={`flex items-center space-x-2 ${
                 activeItem === "user-home"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md  text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md  text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("user-home")}
             >
-              <FaUser className="text-2xl" />
+              <FaUser className="text-xl" />
               <Link
                 to="/dashboard/user-home"
                 className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
@@ -136,7 +183,7 @@ const Dashboard = () => {
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "carts"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("carts")}
@@ -153,7 +200,7 @@ const Dashboard = () => {
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "add-book"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("add-book")}
@@ -167,7 +214,7 @@ const Dashboard = () => {
               </Link>
             </h2>
 
-            <h2
+            {/* <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "reservation"
                   ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
@@ -182,26 +229,26 @@ const Dashboard = () => {
               >
                 Reservation
               </Link>
-            </h2>
+            </h2> */}
 
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "add-reviews"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("add-reviews")}
             >
               <VscPreview className="text-2xl" />
               <Link
-                to="/dashboard/add-reviews"
+                to="/dashboard/add-review"
                 className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
               >
                 Add Reviews
               </Link>
             </h2>
 
-            <h2
+            {/* <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "my-booking"
                   ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
@@ -216,16 +263,16 @@ const Dashboard = () => {
               >
                 My Booking
               </Link>
-            </h2>
+            </h2> */}
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "my-books"
-                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+                  ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
                   : ""
               }`}
               onClick={() => handleItemClick("my-books")}
             >
-              <FaAddressBook className="text-2xl" />
+              <FaBook className="text-2xl" />
               <Link
                 to="/dashboard/my-books"
                 className="active:bg-slate-400 active:text-white transition-colors duration-200 ease-in-out"
@@ -241,7 +288,7 @@ const Dashboard = () => {
         <h2
           className={`flex items-center space-x-2 ${
             activeItem === ""
-              ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+              ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
               : ""
           }`}
           onClick={() => handleItemClick("/")}
@@ -257,7 +304,7 @@ const Dashboard = () => {
         <h2
           className={`flex items-center space-x-2 ${
             activeItem === "books"
-              ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+              ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
               : ""
           }`}
           onClick={() => handleItemClick("books")}
@@ -273,7 +320,7 @@ const Dashboard = () => {
         <h2
           className={`flex items-center space-x-2 ${
             activeItem === "contact"
-              ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-6 rounded-md text-white"
+              ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
               : ""
           }`}
           onClick={() => handleItemClick("contact")}

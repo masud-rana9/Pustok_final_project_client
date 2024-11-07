@@ -50,10 +50,10 @@ const Navbar = () => {
         </div>
 
         {/* Logo for Desktop */}
-        <div className=" hidden md:block w-40 h-20 text-white">
+        <div className=" hidden md:block size-32 text-white">
           {/* <img src={logo} alt="logo" /> */}
           <Link to="/">
-            <h1 className="text-3xl font-bold md:mt-5">PUSTOK</h1>
+            <img src="../../../public/logo2-removebg-preview.png" alt="" />
           </Link>
         </div>
 
