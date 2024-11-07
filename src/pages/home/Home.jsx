@@ -7,6 +7,7 @@ import Testimonial from "./components/Testimonial";
 import Features from "./components/features/Features";
 import Reviews from "../../components/Marquare/Reviews ";
 import SectionTitle from "../../components/SectionTitle";
+import SearchPage from "./components/SearchPage ";
 
 const Home = () => {
   const photos = [
@@ -30,6 +31,7 @@ const Home = () => {
         <meta name="description" content="Pustok || Books" />
       </Helmet>
       <Banner />
+      <SearchPage />
       <div className="my-20">
         <SectionTitle header={" UpComming Books"} headerTitle={"Books "} />
       </div>

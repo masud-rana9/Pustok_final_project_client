@@ -38,7 +38,6 @@
 // export default Banner;
 import image from "../../../../public/banner.webp";
 import AppButton from "../../ui/AppButton";
-import AppSearchInput from "../../ui/AppSearchInput";
 
 const Banner = () => {
   return (
@@ -55,7 +54,7 @@ const Banner = () => {
       <p className="lg:text-[20px] text-[12px] text-center text-[#F1F5F9] lg:my-3 mb-2">
         A Platform Where You Can Find old Books According to Your Preference
       </p>
-      <AppSearchInput variant="white" />
+
       <div className="mt-5 text-white flex justify-center items-center gap-2 lg:gap-5">
         <AppButton
           label="Explore Books"
