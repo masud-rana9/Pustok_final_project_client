@@ -1,4 +1,7 @@
 .featuresimg {
   background-image: url("../../../../../public/backround.webp");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

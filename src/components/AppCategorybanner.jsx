@@ -4,11 +4,16 @@ const AppCategorybanner = ({ item }) => {
       <img
         src={item.url}
         alt={item.title}
-        className="w-full h-[40vh] object-cover transition-transform duration-300 hover:scale-110"
+        className="w-full h-[35vh] object-cover transition-transform duration-300 hover:scale-110"
       />
-      <h3 className="text-4xl uppercase text-center -mt-20 text-white pb-5 bg-opacity-60 bg-black transition-opacity duration-300 hover:bg-opacity-80">
-        {item.title}
-      </h3>
+      <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-20 bg-black transition-opacity duration-300 hover:bg-opacity-40 ">
+        <h3 className="text-4xl uppercase text-center  text-white  ">
+          {item.title}
+        </h3>
+        <p className="text-2xl text-center text-white  transition-opacity duration-300 ">
+          {item.description}
+        </p>
+      </div>
     </div>
   );
 };

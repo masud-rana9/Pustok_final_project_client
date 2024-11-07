@@ -39,7 +39,7 @@ const PopularBook = () => {
 
   return (
     <>
-      <div className="my-24" data-aos="fade-up">
+      <div className="mb-10" data-aos="fade-up">
         <SectionTitle header={"Popular Books"} headerTitle={"Popular"} />
       </div>
 

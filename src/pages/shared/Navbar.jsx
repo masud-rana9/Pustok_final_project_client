@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
 
         {/* Logo for Desktop */}
-        <div className=" hidden md:block size-32 text-white">
+        <div className=" hidden md:block size-24 text-white">
           {/* <img src={logo} alt="logo" /> */}
           <Link to="/">
             <img src="../../../public/logo2-removebg-preview.png" alt="" />

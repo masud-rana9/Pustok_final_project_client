@@ -5,6 +5,7 @@ import useBooks from "../../hooks/useBooks";
 import BookCover from "./components/BookCover";
 
 import SectionTitle from "../../components/SectionTitle";
+import AppSearchInput from "./../ui/AppSearchInput";
 const Books = () => {
   const [books] = useBooks();
   const medicalBooks = books.filter((item) => item.category === "Medical");
@@ -28,6 +29,10 @@ const Books = () => {
         height={"lg:h-[60vh]"}
       />
       {/* <PopularBook /> */}
+
+      <div className="my-10">
+        <AppSearchInput placeholder={"Search Books..."} />
+      </div>
       <div className="my-20">
         <SectionTitle header={"Medical Books"} headerTitle={"Books"} />
       </div>

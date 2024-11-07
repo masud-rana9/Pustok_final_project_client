@@ -4,7 +4,7 @@ import SectionTitle from "../../../../components/SectionTitle";
 const Features = () => {
   return (
     <section className="my-10 p-10 featuresimg bg-fixed bg-cover ">
-      <div className="my-20 text-[#FDFBDA]">
+      <div className="my-5 text-[#FDFBDA]">
         <SectionTitle
           header={"FROM OUR BOOK STORE"}
           headerTitle={"---Order Now---"}
@@ -12,7 +12,7 @@ const Features = () => {
       </div>
       <div className="flex gap-10 px-20 py-10 text-[#FDFBDA]">
         <img
-          className="w-[600px] h-[400px]"
+          className="w-[400px] h-[200px]"
           src="../../../../../public/backround.webp"
           alt="Featured item"
         />
