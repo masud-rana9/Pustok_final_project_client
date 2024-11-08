@@ -32,7 +32,7 @@ const Home = () => {
       </Helmet>
       <Banner />
       <SearchPage />
-      <div className="my-20">
+      <div className="mb-20 mt-5">
         <SectionTitle header={" UpComming Books"} headerTitle={"Books "} />
       </div>
       <Reviews photos={photos} scale={2} />

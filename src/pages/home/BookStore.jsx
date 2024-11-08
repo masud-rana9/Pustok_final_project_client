@@ -2,14 +2,14 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import useBooks from "../../hooks/useBooks";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import image from "../../assets/bookstore.webp";
 import CatewiseBook from "../../components/CatewiseBook";
-import BookCover from "./components/BookCover";
 import SectionTitle from "../../components/SectionTitle";
-import AppSearchInput from "../ui/AppSearchInput";
+import useBooks from "../../hooks/useBooks";
+import BookCover from "./components/BookCover";
+import SearchPage from "./components/SearchPage ";
 
 const BookStore = () => {
   const [books] = useBooks();
@@ -43,11 +43,9 @@ const BookStore = () => {
         />
       </div>
 
-      <div className="my-10">
-        <AppSearchInput placeholder={"Search Books..."} />
-      </div>
+      <SearchPage />
 
-      <div className="my-20 ">
+      <div className="mb-20 mt-5 ">
         <SectionTitle
           header={"All Categories of Books "}
           headerTitle={"Book Store"}

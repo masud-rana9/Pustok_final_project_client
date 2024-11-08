@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import image from "../home/assets/for banner/medical.webp";
 import AppCategory from "../../components/AppCategory";
 import useBooks from "../../hooks/useBooks";
+import image from "../home/assets/for banner/medical.webp";
 import BookCover from "./components/BookCover";
 
 import SectionTitle from "../../components/SectionTitle";
-import AppSearchInput from "./../ui/AppSearchInput";
+import SearchPage from "./components/SearchPage ";
 const Books = () => {
   const [books] = useBooks();
   const medicalBooks = books.filter((item) => item.category === "Medical");
@@ -30,10 +30,8 @@ const Books = () => {
       />
       {/* <PopularBook /> */}
 
-      <div className="my-10">
-        <AppSearchInput placeholder={"Search Books..."} />
-      </div>
-      <div className="my-20">
+      <SearchPage />
+      <div className="mb-20 mt-5">
         <SectionTitle header={"Medical Books"} headerTitle={"Books"} />
       </div>
 
