@@ -10,7 +10,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-sm" data-aos="zoom-out-down">
+    <div className="p-6  rounded-lg shadow-sm" data-aos="zoom-out-down">
       <div className="my-20">
         <SectionTitle
           header={"Frequently Asked Questions"}
@@ -21,12 +21,14 @@ const Faq = () => {
         Frequently Asked Questions
       </h2> */}
       {faqs.map((faq, index) => (
-        <div key={index} className="border-b border-gray-200 mb-4">
+        <div key={index} className=" mb-4">
           <div
-            className="flex justify-between items-center cursor-pointer py-3 hover:bg-gray-100 transition-colors"
+            className="flex justify-between p-4   bg-blue-500 items-center text-white cursor-pointer  rounded-md hover:bg-blue-500 transition-colors hover:text-white "
             onClick={() => toggleFAQ(index)}
           >
-            <h3 className="text-2xl font-normal">{faq.question}</h3>
+            <h3 className="md:text-2xl   text-lg font-normal">
+              {faq.question}
+            </h3>
             <span
               className={`text-2xl transition-transform duration-300 ${
                 activeIndex === index ? "rotate-45" : "rotate-0"
@@ -40,7 +42,9 @@ const Faq = () => {
               activeIndex === index ? "max-h-40" : "max-h-0"
             }`}
           >
-            <p className="text-gray-600 text-lg py-2">{faq.answer}</p>
+            <p className="text-gray-600 bg-gray-200 text-base md:text-lg p-3">
+              {faq.answer}
+            </p>
           </div>
         </div>
       ))}

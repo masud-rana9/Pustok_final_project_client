@@ -29,11 +29,11 @@ const BookCover = ({ image, title, description }) => {
         className="w-full h-[40vh] object-cover"
       />
       <div className="absolute  inset-0 bg-gray-600 bg-opacity-40 flex flex-col gap-4 justify-center items-center">
-        <h1 className="text-white text-4xl font-bold">
+        <h1 className="text-white text-center md:text-4xl text-2xl font-bold">
           {/* Feel free to contact with us */}
           {title}
         </h1>
-        <p className="text-white text-2xl font-bold">
+        <p className="text-white text-center text-xl md:text-2xl font-bold">
           {/* If you want to know about pustok */}
           {description}
         </p>

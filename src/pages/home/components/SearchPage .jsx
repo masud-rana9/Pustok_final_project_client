@@ -1,7 +1,7 @@
 import { useState } from "react";
+import OrderBookCard from "../../../components/OrderBookCard ";
 import AppSearchInput from "../../ui/AppSearchInput"; // Ensure the path is correct
 import useBooks from "./../../../hooks/useBooks"; // Ensure the path is correct
-import AppBookCard from "../../../components/AppBookCard"; // Ensure the path is correct
 
 const SearchPage = () => {
   const [books] = useBooks(); // Assuming useBooks returns an array of books
@@ -38,16 +38,15 @@ const SearchPage = () => {
     <div className="p-4">
       {/* Search Input */}
       <div className={filteredBooks.length === 0 ? "mt-5" : "my-10"}>
-        <AppSearchInput
-          placeholder="Search by title, author, or category"
-          onChange={handleSearch}
-        />
+        <AppSearchInput placeholder="" onChange={handleSearch} />
       </div>
 
       {/* Display filtered books */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
         {filteredBooks.length > 0 ? (
-          filteredBooks.map((book) => <AppBookCard key={book.id} book={book} />)
+          filteredBooks.map((book) => (
+            <OrderBookCard key={book.id} book={book} />
+          ))
         ) : (
           <p className="text-gray-500"></p>
         )}

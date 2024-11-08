@@ -20,13 +20,13 @@ const Dashboard = () => {
     setActiveItem(itemName);
   };
   return (
-    <div className="flex mx-auto container ">
+    <div className="md:flex mx-auto container ">
       <Helmet>
         <title>Pustok || Dashboard</title>
         <meta name="description" content="Pustok || Dashboard" />
       </Helmet>
 
-      <div className="space-y-4 bg-slate-300 p-8 w-[40%] shadow-lg min-h-screen ">
+      <div className="space-y-4 flex md:flex-col bg-slate-300 p-8 md:w-[40%] shadow-lg md:min-h-screen ">
         {isAdmin ? (
           <>
             <h2

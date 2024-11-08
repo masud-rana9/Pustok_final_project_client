@@ -46,30 +46,27 @@ const BookStore = () => {
       <SearchPage />
 
       <div className="mb-20 mt-5 ">
-        <SectionTitle
-          header={"All Categories of Books "}
-          headerTitle={"Book Store"}
-        />
+        <SectionTitle header={"All Categories "} headerTitle={"Book Store"} />
       </div>
 
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
           <Tab>
-            <h1 className="md:text-3xl text-base ">Medical</h1>
+            <h1 className="md:text-2xl text-base ">Medical</h1>
           </Tab>
           <Tab>
-            <h1 className="md:text-3xl text-base"> University </h1>{" "}
+            <h1 className="md:text-2xl text-base"> University </h1>{" "}
           </Tab>
           <Tab>
-            <h1 className="md:text-3xl text-base"> Thriller </h1>{" "}
-          </Tab>
-          <Tab>
-            {" "}
-            <h1 className="md:text-3xl text-base">History</h1>{" "}
+            <h1 className="md:text-2xl text-base"> Thriller </h1>{" "}
           </Tab>
           <Tab>
             {" "}
-            <h1 className="md:text-3xl text-base"> School </h1>
+            <h1 className="md:text-2xl text-base">History</h1>{" "}
+          </Tab>
+          <Tab>
+            {" "}
+            <h1 className="md:text-2xl text-base"> School </h1>
           </Tab>
         </TabList>
 

@@ -17,10 +17,7 @@ const Testimonial = () => {
   return (
     <section className="my-40" data-aos="fade-right">
       <div className="my-24">
-        <SectionTitle
-          header={"Testimonials"}
-          headerTitle={"---What Our Clients Say---"}
-        />
+        <SectionTitle header={"Testimonials"} headerTitle={"Clients Say"} />
       </div>
       <>
         <Swiper
@@ -30,12 +27,18 @@ const Testimonial = () => {
           className="mySwiper"
         >
           {reviews.map((review) => (
-            <SwiperSlide className="text-center space-y-5" key={review._id}>
+            <SwiperSlide
+              className="text-center space-y-5 bg-blue-600 rounded-md text-white p-5"
+              key={review._id}
+            >
               <div className="flex  justify-center">
                 <Rating style={{ maxWidth: 180 }} value={review.rating} />
               </div>
-              <p className="text-xl mx-10"> {review.details}</p>
-              <h2 className="text-2xl text-yellow-500"> {review.name}</h2>
+              <p className="md:text-xl text-lg mx-10"> {review.details}</p>
+              <h2 className="md:text-2xl text-lg text-yellow-500">
+                {" "}
+                {review.name}
+              </h2>
             </SwiperSlide>
           ))}
         </Swiper>

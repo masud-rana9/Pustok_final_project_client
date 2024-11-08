@@ -47,11 +47,11 @@ const Banner = () => {
         backgroundImage: `url(${image})`,
       }}
     >
-      <h1 className="text-white text-2xl md:text-4xl 2xl:text-5xl lg:max-w-[70%] text-center font-bold ">
+      <h1 className="text-white hidden md:block text-2xl md:text-4xl 2xl:text-5xl lg:max-w-[70%] text-center font-bold ">
         <span className="text-[#0074D9]">Welcome to pustok, </span> your gateway
         to <span className="text-[#0074D9]">a world of</span> old books.
       </h1>
-      <p className="lg:text-[20px] text-[12px] text-center text-[#F1F5F9] lg:my-3 mb-2">
+      <p className="lg:text-[20px] hidden md:block  text-[12px] text-center text-[#F1F5F9] lg:my-3 mb-2">
         A Platform Where You Can Find old Books According to Your Preference
       </p>
 

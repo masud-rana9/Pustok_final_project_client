@@ -12,18 +12,19 @@ const Features = () => {
       </div>
       <div className="flex gap-10 px-20 py-10 text-[#FDFBDA]">
         <img
-          className="w-[400px] h-[200px]"
+          className="md:w-[400px] md:h-[200px] w-full h-full"
           src="../../../../../public/backround.webp"
           alt="Featured item"
         />
-        <div>
+
+        <div className="hidden md:block">
           {/* Displaying formatted date */}
           <h2 className="text-2xl">{moment().format("MMMM D, YYYY")}</h2>
           <h2 className="text-2xl">WHERE CAN I GET SOME?</h2>
           <p className="text-xl  mt-5">
             Welcome to pustok, your gateway to a world of old books.
           </p>
-          <button className="mt-10 btn btn-outline border-0 border-b-4">
+          <button className="mt-10 btn hidden md:block btn-outline border-0 border-b-4">
             Read More
           </button>
         </div>
