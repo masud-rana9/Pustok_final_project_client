@@ -68,7 +68,7 @@ const Navbar = () => {
             {/* Add this wrapper */}
             {navItem.map((nav) => (
               <Link
-                className="text-white text-xl p-4 block md:inline-block"
+                className="text-white text-lg p-4 block md:inline-block"
                 to={nav.path}
                 key={nav.name}
               >
