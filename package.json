@@ -12,10 +12,13 @@
   "dependencies": {
     "@egjs/flicking": "^4.11.4",
     "@egjs/react-flicking": "^4.11.4",
+    "@smastrom/react-rating": "^1.5.0",
     "@tanstack/react-query": "^5.59.16",
     "antd": "^5.21.6",
+    "aos": "^2.3.4",
     "axios": "^1.7.7",
     "firebase": "^11.0.1",
+    "moment": "^2.30.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",

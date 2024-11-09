@@ -28,52 +28,51 @@ const UserHomePage = () => {
   const [selectedTab, setSelectedTab] = useState("dashboard");
 
   return (
-    <div className="container mx-auto p-4 pt-6 mt-10 bg-gray-100 ">
-      <div className="flex justify-between mb-4">
-        <h2 className="text-3xl font-bold text-gray-900">User Home Page</h2>
+    <div className="container mx-auto p-6 mt-10 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow-xl">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-4xl font-extrabold text-gray-800">
+          User Home Page
+        </h2>
         <div className="flex items-center space-x-4">
-          <button
-            className={`text-lg font-medium ${
-              selectedTab === "dashboard"
-                ? "bg-green-500 text-white"
-                : "bg-gray-200 text-gray-600"
-            } py-2 px-4 rounded`}
-            onClick={() => setSelectedTab("dashboard")}
-          >
-            Dashboard
-          </button>
-          <button
-            className={`text-lg font-medium ${
-              selectedTab === "settings"
-                ? "bg-green-500 text-white"
-                : "bg-gray-200 text-gray-600"
-            } py-2 px-4 rounded`}
-            onClick={() => setSelectedTab("settings")}
-          >
-            Settings
-          </button>
+          {["dashboard", "settings"].map((tab) => (
+            <button
+              key={tab}
+              className={`text-lg font-semibold py-2 px-6 rounded-lg transition-all duration-300 ${
+                selectedTab === tab
+                  ? "bg-blue-600 text-white shadow-lg"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+              onClick={() => setSelectedTab(tab)}
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          ))}
         </div>
       </div>
 
       {selectedTab === "dashboard" ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-white p-4 rounded shadow-md">
-            <h3 className="text-lg font-bold text-gray-900">Activity</h3>
-            <p className="text-lg font-medium text-gray-600">
-              Monthly Average: 50
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <h3 className="text-xl font-bold text-blue-700">Activity</h3>
+            <p className="text-lg font-medium text-gray-600 mt-2">
+              Monthly Average: <span className="text-blue-600">50</span>
             </p>
           </div>
-          <div className="bg-white p-4 rounded shadow-md">
-            <h3 className="text-lg font-bold text-gray-900">Posts</h3>
-            <p className="text-lg font-medium text-gray-600">Total Posts: 42</p>
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <h3 className="text-xl font-bold text-blue-700">Posts</h3>
+            <p className="text-lg font-medium text-gray-600 mt-2">
+              Total Posts: <span className="text-blue-600">42</span>
+            </p>
           </div>
-          <div className="bg-white p-4 rounded shadow-md">
-            <h3 className="text-lg font-bold text-gray-900">Achievements</h3>
-            <p className="text-lg font-medium text-gray-600">3 New Badges</p>
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <h3 className="text-xl font-bold text-blue-700">Achievements</h3>
+            <p className="text-lg font-medium text-gray-600 mt-2">
+              3 New Badges
+            </p>
           </div>
-          <div className="col-span-3 bg-white p-4 rounded shadow-md">
-            <h3 className="text-lg font-bold text-gray-900">Activity Chart</h3>
-            <LineChart width={800} height={400} data={userData}>
+          <div className="col-span-1 md:col-span-2 lg:col-span-3 bg-white p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-bold text-blue-700">Activity Chart</h3>
+            <LineChart width={700} height={400} data={userData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
@@ -90,18 +89,18 @@ const UserHomePage = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-white p-4 rounded shadow-md">
-          <h3 className="text-lg font-bold text-gray-900">Settings</h3>
-          <form className="space-y-4">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-bold text-blue-700">Settings</h3>
+          <form className="space-y-6 mt-4">
             <div className="flex flex-col">
               <label
-                className="text-lg font-medium text-gray-600"
+                className="text-lg font-semibold text-gray-700"
                 htmlFor="username"
               >
                 Username
               </label>
               <input
-                className="p-2 rounded border border-gray-300 focus:outline-none focus:ring focus:ring-green-500"
+                className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"
                 id="username"
                 placeholder="Enter your username"
@@ -109,20 +108,20 @@ const UserHomePage = () => {
             </div>
             <div className="flex flex-col">
               <label
-                className="text-lg font-medium text-gray-600"
+                className="text-lg font-semibold text-gray-700"
                 htmlFor="email"
               >
                 Email
               </label>
               <input
-                className="p-2 rounded border border-gray-300 focus:outline-none focus:ring focus:ring-green-500"
+                className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="email"
                 id="email"
                 placeholder="Enter your email"
               />
             </div>
             <button
-              className="text-lg font-medium bg-green-500 text-white py-2 px-4 rounded"
+              className="w-full text-lg font-semibold bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg"
               type="submit"
             >
               Save Changes

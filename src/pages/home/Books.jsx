@@ -16,15 +16,15 @@ const Books = () => {
   const thrillerBooks = books.filter((item) => item.category === "Thriller");
 
   return (
-    <div className="">
+    <div className="mb-14">
       <Helmet>
         <title>Pustok || Books</title>
         <meta name="description" content="Pustok || Books" />
       </Helmet>
       <BookCover
         image={image}
-        decription=" Welcome to Our books"
-        title="Welcome to Our Book Store"
+        description="Rediscover the Magic of Timeless Books"
+        title="Where Stories Never Grow Old"
         height={"lg:h-[60vh]"}
       />
       {/* <PopularBook /> */}
