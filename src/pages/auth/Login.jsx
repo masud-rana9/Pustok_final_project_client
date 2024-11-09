@@ -38,8 +38,8 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-[60vh]">
-      <div className="md:w-[40%] mx-auto mt-20 shadow-lg p-10   bg-white rounded-md ">
+    <div className="w-full h-[80vh]">
+      <div className="md:w-[40%] mx-auto mt-20 shadow-xl p-10 border   bg-white rounded-md ">
         <Helmet>
           <title>Pustok || Books</title>
           <meta name="description" content="Pustok || Books" />

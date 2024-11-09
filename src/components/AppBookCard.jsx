@@ -18,7 +18,7 @@ const AppBookCard = ({ book }) => {
           <p className="text-gray-800 font-semibold mt-2">
             Author: {authorName}
           </p>
-          <p className="text-gray-800 mt-2">{description}</p>
+          <p className="text-gray-800 mt-2 text-[12px]">{description}</p>
         </div>
         <p className="text-green-600 font-bold mt-2">
           {status === "Paid" ? `$${price}` : "Free"}

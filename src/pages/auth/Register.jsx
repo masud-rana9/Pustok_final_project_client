@@ -53,8 +53,8 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full h-[60vh]">
-      <div className="md:w-[40%]  mx-auto mt-20 shadow-lg p-10  bg-white rounded-md ">
+    <div className="w-full my-10  h-[80vh]">
+      <div className="md:w-[40%]  mx-auto my-20 shadow-xl p-10 border   bg-white rounded-md ">
         <Helmet>
           <title>Pustok || SignUp</title>
           <meta name="description" content="Pustok || SignUp" />

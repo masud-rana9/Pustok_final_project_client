@@ -8,6 +8,8 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const userData = [
   { name: "January", activity: 30, posts: 5 },
@@ -26,12 +28,31 @@ const userData = [
 
 const UserHomePage = () => {
   const [selectedTab, setSelectedTab] = useState("dashboard");
+  const {user,logOut}=useAuth()
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logout Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
-    <div className="container mx-auto p-6 mt-10 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow-xl">
+    <div className="container mx-auto p-6  mt-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg shadow-xl">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-4xl font-extrabold text-gray-800">
-          User Home Page
+        <h2 className="text-2xl font-medium text-gray-800">
+          {user.displayName}
+          <button onClick={handleLogout} className="border border-gray-500 bg-blue-500 text-white ml-5 py-2 px-3  rounded-full text-base ">
+            Logout
+          </button>
         </h2>
         <div className="flex items-center space-x-4">
           {["dashboard", "settings"].map((tab) => (

@@ -96,7 +96,7 @@ const Dashboard = () => {
               </Link>
             </h2>
 
-            <h2
+            {/* <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "manage-bookings"
                   ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-2 rounded-md text-white"
@@ -111,7 +111,7 @@ const Dashboard = () => {
               >
                 Manage Bookings
               </Link>
-            </h2>
+            </h2> */}
             <h2
               className={`flex items-center space-x-2 ${
                 activeItem === "contact-details"
