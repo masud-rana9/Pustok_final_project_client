@@ -53,19 +53,19 @@ const OrderBookCard = ({ book }) => {
   };
 
   return (
-    <div className="bg-white relative h-[550px] p-4 rounded-lg shadow-lg transition-transform duration-300 hover:shadow-xl">
+    <div className="bg-gray-300 relative h-[450px] p-4 rounded-lg shadow-xl transition-transform duration-300 hover:shadow-xl">
       <img
         src={image}
         alt={name}
-        className="w-full h-52 object-cover rounded-lg mb-8"
+        className="w-full h-40 object-cover rounded-lg mb-8"
       />
-      <div className="flex justify-between items-center my-6">
-        <h3 className="text-3xl font-semibold text-gray-800">{name}</h3>
+      <div className="flex justify-between items-center my-4">
+        <h3 className="text-2xl font-semibold text-gray-800">{name}</h3>
         <p className="text-xl text-gray-600 mt-1">{authorName}</p>
       </div>
-      <p className="text-lg text-gray-500 mt-1">{description}</p>
-      <div className="flex justify-between items-center my-6">
-        <p className="text-lg text-gray-800 font-semibold mt-2">
+      <p className="text-base  text-gray-500 mt-1">{description}</p>
+      <div className="flex justify-between items-center my-3">
+        <p className="text-lg text-gray-800 font-semibold mt-1">
           Category: {book.category}
         </p>
 
